@@ -1,0 +1,36 @@
+
+public class Main {
+
+    /**
+     * Esta es la función principal que puedes ejecutar para probar el código.
+     */
+    public static void main(String[] args) {
+        String textoOriginal = "hola";
+        String textoInvertido = invertir(textoOriginal);
+        System.out.println("La cadena '" + textoOriginal + "' invertida es: " + textoInvertido);
+
+        String otroTexto = "Emiliano Lozano";
+        System.out.println("La cadena '" + otroTexto + "' invertida es: " + invertir(otroTexto));
+    }
+
+    /**
+     * Función recursiva para invertir una cadena de texto.
+     *
+     * @param cadena La cadena de texto que se va a invertir.
+     * @return La cadena de texto invertida.
+     */
+    public static String invertir(String cadena) {
+        // Caso Base: Si la cadena es nula o tiene 1 o menos caracteres,
+        // no hay nada que invertir, así que la devolvemos tal cual.
+        if (cadena == null || cadena.length() <= 1) {
+            return cadena;
+        }
+
+        // Paso Recursivo:
+        // 1. Tomamos el primer carácter de la cadena (en el índice 0).
+        // 2. Llamamos a la misma función "invertir" pero con el resto de la cadena
+        //    (desde el segundo carácter hasta el final).
+        // 3. Concatenamos el resultado de la llamada recursiva con el primer carácter.
+        return invertir(cadena.substring(1)) + cadena.charAt(0);
+    }
+}
